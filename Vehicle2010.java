@@ -8,15 +8,15 @@ public class Vehicle2010 extends Vehicle {
 
    public void moveLowerLeft(){
 
-    this.x--;
-    this.y--;
+    moveDown();
+    moveLeft();
    }
    public void moveUpperRight(){
-    this.x++;
-    this.y++;
+    moveUp();
+    moveRight();
    }
    public void moveLowerRight(){
-    this.x++;
-    this.y--;
+    moveDown();
+    moveRight();
    }
 }
