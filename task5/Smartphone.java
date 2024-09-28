@@ -4,7 +4,7 @@
         public String name;
         public String[] featureKeys;
         public String[] featureValues;
-        public static int featureCount;
+        public int featureCount;
         public Smartphone(){
 
             this.name = "";
@@ -27,30 +27,31 @@
         public void addFeature(String key, String value){
 
             if(!this.name.equals("")){
-
+ 
+                boolean keyFound = false;
                 
-                if(key.equals("Ram")){
-                    boolean ramFound = false;
-                    for(int i = 0; i < 10; i++){
-    
-                        if(this.featureKeys[i].equals("Ram")){
-                            ramFound = true;
-                            this.featureValues[i] = this.featureValues[i] + ", " + value;
-                            return;
-                        }
+                for(int i = 0; i < 10; i++){
+
+                    if(this.featureKeys[i] == null){
+
+                        break;
+                    };
+
+                    if(this.featureKeys[i].equals(key)){
+
+                        keyFound = true;
+                        this.featureValues[i] = this.featureValues[i] + ", " + value;
+                        return;
+
                     }
-                    if(ramFound == false){
-                        this.featureKeys[featureCount] = key;
-                        this.featureValues[featureCount++] = value;
+                }
 
-                            
-                    }
-
-                    }else{
-
-                this.featureKeys[featureCount] = key;
+                if(keyFound == false){
+ 
+                    this.featureKeys[featureCount] = key;
                 this.featureValues[featureCount++] = value;
-                    }
+
+                }
                 
                 
             }else{
